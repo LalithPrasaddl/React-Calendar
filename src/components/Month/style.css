@@ -1,0 +1,38 @@
+.month-row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.month-row > div {
+  flex: 1;
+  text-align: right;
+  padding-top: 8px;
+  padding-right: 12px;
+  border-top: 1px solid rgb(230, 230, 230);
+  border-right: 1px solid rgb(230, 230, 230);
+  min-height: 14vh;
+  box-sizing: border-box;
+  font-weight: 400;
+}
+
+.month-row .sunday {
+  background-color: rgb(245, 245, 245);
+  color: rgb(123, 123, 123);
+}
+
+.month-helper-row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border-bottom: 1px solid rgb(230, 230, 230);
+}
+.month-helper-row > div {
+  padding: 4px 8px;
+  flex: 1;
+  text-align: right;
+}
+
+.month-helper-row > div.sunday {
+  color: rgb(123, 123, 123);
+}

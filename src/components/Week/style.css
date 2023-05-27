@@ -1,0 +1,48 @@
+.week {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 84vh;
+  max-height: 84vh;
+  overflow: auto;
+}
+
+.week-time {
+  flex: 0.5;
+}
+
+.week-column {
+  flex: 1;
+  border-left: 1px solid rgb(230, 230, 230);
+}
+
+.week-hour {
+  min-height: 8vh;
+  border-top: 1px solid rgb(230, 230, 230);
+  border-right: 1px solid rgb(230, 230, 230);
+}
+
+.week-column.sunday, .week-column.sunday .week-hour {
+  background-color: rgb(245, 245, 245);
+  color: rgb(123, 123, 123);
+}
+
+.week-helper-row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  box-sizing: border-box;
+}
+.week-helper-row > div {
+  flex: 1;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.week-helper-row > div.week-time {
+  flex: 0.5;
+}
+
+.week-helper-row > div.sunday {
+  color: rgb(123, 123, 123);
+}
