@@ -20,6 +20,22 @@
   min-height: 8vh;
   border-top: 1px solid rgb(230, 230, 230);
   border-right: 1px solid rgb(230, 230, 230);
+  box-sizing: border-box;
+}
+
+.week-hour-title {
+  position: relative;
+  min-height: 8vh;
+}
+
+.week-hour-title span {
+  position: absolute;
+  right: 0;
+  padding-right: 4px;
+  font-size: 0.75rem;
+  bottom: -10px;
+  color: rgb(123, 123, 123);
+  font-weight: 400;
 }
 
 .week-column.sunday, .week-column.sunday .week-hour {

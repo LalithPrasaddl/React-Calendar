@@ -4,7 +4,7 @@ import ContentView from './components/Content/Content';
 import ContentHelperView from './components/Content/ContentHelper';
 
 function App() {
-  const [view, setView] = useState<View>('week');
+  const [view, setView] = useState<View>('year');
   return (
     <>
       <ContentHelperView view={view} updateView={(key: View) => setView(key)} />

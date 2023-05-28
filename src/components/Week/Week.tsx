@@ -19,7 +19,17 @@ function WeekView() {
   const hours = getHours();
   return (
     <div className="week">
-      <div className="week-time"></div>
+      <div className="week-time">
+      {
+        hours.map((hour, hourIndex) => {
+          return (
+            <div className="week-hour-title" key={`hour_title_${hourIndex}_`}>
+              <span>{hour} AM</span>
+            </div>
+          )
+        })
+      }
+      </div>
       {
         boxes.map((_, boxIndex) => {
           let className = 'week-column';

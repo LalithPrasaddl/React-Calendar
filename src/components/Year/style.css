@@ -1,0 +1,42 @@
+.year-wrapper {
+  height: 84vh;
+  max-height: 84vh;
+}
+
+.year-row {
+  display: flex;
+}
+
+.year-row > div {
+  flex: 1;
+  padding: .5rem 1.5rem;
+}
+
+.year-row-month-name {
+  color: rgb(264, 64, 63);
+  font-weight: 500;
+  font-size: 1.25rem;
+  padding-left: .85rem;
+}
+
+.week-days-row {
+  margin-top: .5rem;
+  margin-bottom: .45rem;
+  display: flex;
+  box-sizing: border-box;
+  font-weight: 500;
+  color: rgb(137, 137, 137);
+}
+
+.week-days-row > div, .year-day-row > div {
+  flex: 1;
+  text-align: center;
+}
+
+.year-day-row {
+  display: flex;
+}
+
+.year-day-row > div,  .week-days-row {
+  font-size: .9rem;
+}

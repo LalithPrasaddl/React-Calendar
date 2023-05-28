@@ -1,5 +1,6 @@
 import MonthView from "../Month/Month";
 import WeekView from "../Week/Week";
+import YearView from "../Year/Year";
 
 import './style.css';
 
@@ -13,6 +14,9 @@ function ContentView({
   }
   if(view === 'week') {
     return <WeekView />
+  }
+  if(view === 'year') {
+    return <YearView />
   }
   return null;
 }

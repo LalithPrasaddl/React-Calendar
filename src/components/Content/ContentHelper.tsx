@@ -44,7 +44,10 @@ function ContentHelperView({
       </div>
       <div className="month-today-wrapper">
         <div>
-          <span className="month">May</span>
+          {
+            view !== 'year' &&
+            <span className="month">May</span>
+          }
           <span className="year">2023</span>
         </div>
         <div className="today-wrapper">
