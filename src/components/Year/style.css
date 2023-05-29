@@ -39,4 +39,10 @@
 
 .year-day-row > div,  .week-days-row {
   font-size: .9rem;
+  font-weight: 500;
+
+}
+
+.prev-next {
+  color: rgb(137, 137, 137);
 }

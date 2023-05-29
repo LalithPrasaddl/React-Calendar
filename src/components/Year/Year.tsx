@@ -7,7 +7,10 @@ function Year() {
     const rows = [];
     let columns = [];
     for (let i = 0; i < months.length; i++) {
-        columns.push(months[i]);
+        columns.push({
+          ...months[i],
+          month: i,
+        });
         if(columns.length === 4) {
           rows.push(columns);
           columns = []
@@ -24,7 +27,10 @@ function Year() {
             <div key={`row_${rowIndex}`} className="year-row">
               {
                 row.map((col) => {
-                  const days = getDays({});
+                  const days = getDays({
+                    year: 2023,
+                    month: col.month
+                  });
                   return (
                     <div key={col.fullName}>
                       <div className="year-row-month-name">{col.fullName}</div>
@@ -32,7 +38,7 @@ function Year() {
                         {
                           weekDays.map((item) => {
                             return (
-                              <div>{item.charAt(0)}</div>
+                              <div key={item}>{item.charAt(0)}</div>
                             )
                           })
                         }
@@ -41,11 +47,12 @@ function Year() {
                         {
                           days.map((dayRow, dayRowIndex) => {
                             return (
-                              <div key={`day_row_${dayRowIndex}`} className="year-day-row">
+                              <div key={`day_row_${dayRowIndex}_row_${rowIndex}`} className="year-day-row">
                                 {
                                   dayRow.map((dayCol) => {
+                                    const className = dayCol.color ? ' prev-next' : ''
                                     return (
-                                      <div>{dayCol + 1}</div>
+                                      <div key={`day_col_${dayCol.day}`} className={className}>{dayCol.day}</div>
                                     )
                                   })
                                 }

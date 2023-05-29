@@ -1,13 +1,7 @@
+import { getHours } from '../../helpers/utils';
 import './style.css';
 
 function WeekView() {
-  function getHours() {
-    const columns: any[] = [];
-    for (let i = 0; i < 24; i++) {
-        columns.push(i + 1);
-    }
-    return columns;
-  }
   function getBoxes() {
     const rows: any[] = [];
     for (let i = 0; i < 7; i++) {

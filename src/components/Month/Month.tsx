@@ -1,30 +1,29 @@
+import { getDays } from '../../helpers/utils';
 import './style.css';
 
-function MonthView() {
-  function getBoxes() {
-    const rows: any[] = [];
-    let column: number[] = [];
-    for (let i = 0; i < 42; i++) {
-        column.push(i + 1);
-        if(column.length === 7) {
-          rows.push(column)
-          column = []
-        }
-    }
-    return rows;
-  }
-  const boxes = getBoxes()
+function MonthView({
+  currDate
+}: {
+  currDate: CurrDate
+}) {
+  const boxes = getDays({
+    year: currDate.year,
+    month: currDate.month
+  })
   return (
-    <div>
+    <div className="month-wrapper">
       {
         boxes.map((row, rowKey) => {
           return (
             <div className="month-row" key={`row_${rowKey}`}>
               {
-                row.map((column: number, colIndex: number) => {
-                  const colClassName = colIndex === 0 ? 'sunday' : ''
+                row.map((column: any, colIndex: number) => {
+                  let colClassName = colIndex === 0 ? 'sunday' : ''
+                  if(column.color) {
+                    colClassName += ' color-sunday';
+                  }
                   return (
-                    <div className={colClassName} key={`column_${rowKey}_${colIndex}`}>{column}</div>
+                    <div className={colClassName} key={`column_${rowKey}_${colIndex}`}>{column.dayText || column.day}</div>
                   )
                 })
               }

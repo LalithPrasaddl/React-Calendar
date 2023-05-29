@@ -3,10 +3,14 @@ import WeekHelperView from "../Week/WeekHelper";
 
 function ContentHelperView({
   view,
-  updateView
+  currDate,
+  updateView,
+  updateDate
 }: {
   view: View;
+  currDate: CurrDate;
   updateView: Function;
+  updateDate: Function;
 }) {
   const tabs = [{
     title: 'Day',
@@ -45,23 +49,32 @@ function ContentHelperView({
       <div className="month-today-wrapper">
         <div>
           {
-            view !== 'year' &&
-            <span className="month">May</span>
+            view === 'day' &&
+            <span className="month">{currDate.date}</span>
           }
-          <span className="year">2023</span>
+          {
+            view !== 'year' &&
+            <span className="month">{currDate.monthText}</span>
+          }
+          <span className="year">{currDate.year}</span>
         </div>
         <div className="today-wrapper">
-          <button>
+          <button onClick={() => updateDate('prev')}>
             <span className="material-symbols-outlined">arrow_back_ios</span>
           </button>
-          <button>
+          <button onClick={() => updateDate('today')}>
             Today
           </button>
-          <button>
+          <button onClick={() => updateDate('next')}>
             <span className="material-symbols-outlined">arrow_forward_ios</span>
           </button>
         </div>
       </div>
+      {
+        view === 'day' && (
+          <div className="content-today-wrapper">Monday</div>
+        )
+      }
       {
         view === 'month' && <MonthHelperView />
       }

@@ -18,3 +18,12 @@ body {
   margin: 0;
   background-color: white;
 }
+
+.content-helper {
+  height: 16vh;
+}
+
+.content {
+  height: 84vh;
+  overflow: auto;
+}

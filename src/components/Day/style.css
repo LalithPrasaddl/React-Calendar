@@ -1,0 +1,39 @@
+.day-wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 84vh;
+  max-height: 84vh;
+  overflow: auto;
+  border-top: 1px solid rgb(230, 230, 230);
+  box-sizing: border-box;
+  margin-left: .75rem;
+}
+
+.day-wrapper > div:first-of-type {
+  flex: 1;
+}
+
+.day-wrapper > div:last-of-type {
+  flex: 19;
+}
+
+.day-hour-title {
+  position: relative;
+  min-height: 7vh;
+}
+
+.day-hour-title span {
+  position: absolute;
+  right: 0;
+  padding-right: 4px;
+  font-size: 0.75rem;
+  bottom: -0.8vh;
+  color: rgb(123, 123, 123);
+  font-weight: 400;
+}
+
+.day-hour-content {
+  border-bottom: 1px solid rgb(230, 230, 230);
+  min-height: 7vh;
+  box-sizing: border-box;
+}

@@ -1,22 +1,28 @@
 import MonthView from "../Month/Month";
 import WeekView from "../Week/Week";
 import YearView from "../Year/Year";
+import DayView from "../Day/Day";
 
 import './style.css';
 
 function ContentView({
-  view
+  view,
+  currDate
 }: {
-  view: View
+  view: View,
+  currDate: CurrDate
 }) {
   if(view === 'month') {
-    return <MonthView />;
+    return <MonthView currDate={currDate} />;
   }
   if(view === 'week') {
     return <WeekView />
   }
   if(view === 'year') {
     return <YearView />
+  }
+  if(view === 'day') {
+    return <DayView />
   }
   return null;
 }
