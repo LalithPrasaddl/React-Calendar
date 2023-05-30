@@ -10,7 +10,7 @@ function App() {
   function updateDate(type: 'today' | 'prev' | 'next') {
     if(type === 'today') {
       setCurrDate(getTodaysDate())
-    } else if(['prev', 'next'].indexOf(type)) {
+    } else if(['prev', 'next'].indexOf(type) > -1) {
       setCurrDate(getPrevNextDate({
         view,
         currDate,

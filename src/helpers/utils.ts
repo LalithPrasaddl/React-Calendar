@@ -168,14 +168,17 @@ export function getPrevNextDate({
   if(view === 'day') {
     date.date = mode === 'prev' ? (date.date - 1) : date.date + 1;
   }
-  if(date.date === 0) {
+  if(view === 'week') {
+    date.date = mode === 'prev' ? (date.date - 7) : date.date + 7;
+  }
+  if(date.date <= 0) {
     const prevMonth = date.month === 0 ? 11 : date.month - 1;
     const prevMonthDays = getDaysInMonth({year: date.year, month: prevMonth})
-    date.date = prevMonthDays
+    date.date = prevMonthDays + date.date;
     date.month -= 1;
   }
-  if(date.date === getDaysInMonth({year: date.year, month: date.month}) + 1) {
-    date.date = 1;
+  if(date.date > getDaysInMonth({year: date.year, month: date.month})) {
+    date.date = date.date - getDaysInMonth({year: date.year, month: date.month});
     date.month += 1
   }
   if(date.month === -1) {
