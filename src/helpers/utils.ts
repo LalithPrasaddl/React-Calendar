@@ -148,3 +148,44 @@ export function getTodaysDate() {
     monthText: months[month].fullName
   }
 }
+
+export function getPrevNextDate({
+  view,
+  currDate,
+  mode
+}: {
+  view: View;
+  currDate: CurrDate;
+  mode: 'prev' | 'next'
+}) {
+  const date: CurrDate = {...currDate}
+  if(view === 'year') {
+    date.year = mode === 'prev' ? (date.year - 1) : date.year + 1;
+  }
+  if(view === 'month') {
+    date.month = mode === 'prev' ? (date.month - 1) : date.month + 1;
+  }
+  if(view === 'day') {
+    date.date = mode === 'prev' ? (date.date - 1) : date.date + 1;
+  }
+  if(date.date === 0) {
+    const prevMonth = date.month === 0 ? 11 : date.month - 1;
+    const prevMonthDays = getDaysInMonth({year: date.year, month: prevMonth})
+    date.date = prevMonthDays
+    date.month -= 1;
+  }
+  if(date.date === getDaysInMonth({year: date.year, month: date.month}) + 1) {
+    date.date = 1;
+    date.month += 1
+  }
+  if(date.month === -1) {
+    date.month = 11;
+    date.year -= 1;
+  }
+  if(date.month === 12) {
+    date.month = 0;
+    date.year += 1;
+  }
+  date.monthText = months[date.month].fullName
+  return date;
+}

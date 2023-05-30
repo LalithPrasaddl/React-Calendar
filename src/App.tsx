@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import ContentView from './components/Content/Content';
 import ContentHelperView from './components/Content/ContentHelper';
-import { getTodaysDate } from './helpers/utils';
+import { getPrevNextDate, getTodaysDate } from './helpers/utils';
 
 function App() {
   const [view, setView] = useState<View>('month');
@@ -10,6 +10,12 @@ function App() {
   function updateDate(type: 'today' | 'prev' | 'next') {
     if(type === 'today') {
       setCurrDate(getTodaysDate())
+    } else if(['prev', 'next'].indexOf(type)) {
+      setCurrDate(getPrevNextDate({
+        view,
+        currDate,
+        mode: type
+      }))
     }
   }
   return (

@@ -19,7 +19,7 @@ function ContentView({
     return <WeekView />
   }
   if(view === 'year') {
-    return <YearView />
+    return <YearView currDate={currDate} />
   }
   if(view === 'day') {
     return <DayView />

@@ -2,7 +2,11 @@ import { getDays, months, weekDays } from "../../helpers/utils";
 
 import './style.css';
 
-function Year() {
+function Year({
+  currDate
+}: {
+  currDate: CurrDate
+}) {
   function getMonths() {
     const rows = [];
     let columns = [];
@@ -28,7 +32,7 @@ function Year() {
               {
                 row.map((col) => {
                   const days = getDays({
-                    year: 2023,
+                    year: currDate.year,
                     month: col.month
                   });
                   return (
