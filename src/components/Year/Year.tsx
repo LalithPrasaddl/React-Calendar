@@ -1,4 +1,4 @@
-import { getDays, months, weekDays } from "../../helpers/utils";
+import { getDays, getTodaysDate, months, weekDays } from "../../helpers/utils";
 
 import './style.css';
 
@@ -23,6 +23,7 @@ function Year({
     return rows;
   }
   const rowCols = getMonths();
+  const today = getTodaysDate();
   return (
     <div className="year-wrapper">
       {
@@ -54,9 +55,12 @@ function Year({
                               <div key={`day_row_${dayRowIndex}_row_${rowIndex}`} className="year-day-row">
                                 {
                                   dayRow.map((dayCol) => {
-                                    const className = dayCol.color ? ' prev-next' : ''
+                                    let className = dayCol.color ? ' prev-next' : '';
+                                    let textClass = dayCol.year === today.year && dayCol.month === today.month && dayCol.day === currDate.date && !dayCol.color ? 'today-year' : ''
                                     return (
-                                      <div key={`day_col_${dayCol.day}`} className={className}>{dayCol.day}</div>
+                                      <div key={`day_col_${dayCol.day}`} className={className}>
+                                        <span className={textClass}>{dayCol.day}</span>
+                                      </div>
                                     )
                                   })
                                 }

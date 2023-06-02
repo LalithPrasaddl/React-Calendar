@@ -84,7 +84,7 @@ export function getDays({
   year: number;
   month: number
 }) {
-  const days = [];
+  const days: DayDate[] = [];
   const date = new Date(`${month + 1}/1/${year}`)
   const currMonthDays = getDaysInMonth({year, month})
   const prevMonthDays = getDaysInMonth({year, month: month - 1})
@@ -103,7 +103,7 @@ export function getDays({
         month,
         year,
         color: false,
-        dayText: i === 0 ? `${i + 1} ${months[month].halfName}` : null
+        dayText: i === 0 ? `${i + 1} ${months[month].halfName}` : ''
       })
   }
   const remDays = 42 - days.length
@@ -114,7 +114,7 @@ export function getDays({
         month: nextMonth,
         year: month + 1 === 12 ? year + 1 : year,
         color: true,
-        dayText: i === 0 ? `${i + 1} ${months[nextMonth].halfName}` : null
+        dayText: i === 0 ? `${i + 1} ${months[nextMonth].halfName}` : ''
       })
   }
   const rows = [];
@@ -191,4 +191,54 @@ export function getPrevNextDate({
   }
   date.monthText = months[date.month].fullName
   return date;
+}
+
+export function getWeekDates(currDate: CurrDate) {
+  const day = new Date(`${currDate.month + 1}/${currDate.date}/${currDate.year}`).getDay()
+  const weekDays: DayDate[] = [];
+  const nextMonth = currDate.month === 11 ? 0 : currDate.month + 1;
+  const nextYear = currDate.month === 11 ? currDate.year + 1 : currDate.year;
+  const prevMonth = currDate.month === 0 ? 11 : currDate.month - 1;
+  const prevYear = currDate.month === 0 ? currDate.year - 1 : currDate.year;
+  const prevMonthDays = getDaysInMonth({year: currDate.year, month: prevMonth})
+  const currMonthDays = getDaysInMonth({year: currDate.year, month: currDate.month})
+  let decrementCount = 0;
+  for (let i = 0; i < day; i++) {
+    if(currDate.date - i > 1) {
+      weekDays.unshift({
+        day: currDate.date - i - 1,
+        month: currDate.month,
+        year: currDate.year,
+      })
+    } else {
+      weekDays.unshift({
+        day: prevMonthDays - decrementCount,
+        month: prevMonth,
+        year: prevYear
+      })
+      decrementCount += 1;
+    }
+  }
+  weekDays.push({
+    day: currDate.date,
+    month: currDate.month,
+    year: currDate.year
+  })
+  const remDays = 7 - weekDays.length;
+  for (let i = 0; i < remDays; i++) {
+    if(i + currDate.date === currMonthDays) {
+      weekDays.push({
+        day: currMonthDays - currDate.date + i + 1,
+        month: nextMonth,
+        year: nextYear,
+      })
+    } else {
+      weekDays.push({
+        day: i + currDate.date + 1,
+        month: currDate.month,
+        year: currDate.year
+      })
+    }
+  }
+  return weekDays;
 }

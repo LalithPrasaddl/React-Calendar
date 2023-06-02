@@ -26,14 +26,13 @@ function WeekView() {
       </div>
       {
         boxes.map((_, boxIndex) => {
-          let className = 'week-column';
-          className += boxIndex === 0 ? ' sunday' : '';
+          const className = 'week-column';
           return (
             <div key={`row_${boxIndex}`} className={className}>
                 {
-                  hours.map((hour, hourIndex) => {
+                  hours.map((_, hourIndex) => {
                     return (
-                      <div className="week-hour" key={`hour_${hourIndex}_row_${boxIndex}`}>{boxIndex} {hour}</div>
+                      <div className="week-hour" key={`hour_${hourIndex}_row_${boxIndex}`}></div>
                     )
                   })
                 }

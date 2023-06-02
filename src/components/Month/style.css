@@ -13,12 +13,12 @@
   flex: 1;
   text-align: right;
   padding-top: 8px;
-  padding-right: 12px;
+  padding-right: 6px;
   border-top: 1px solid rgb(230, 230, 230);
   border-right: 1px solid rgb(230, 230, 230);
   min-height: 14vh;
   box-sizing: border-box;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .month-row .sunday {
@@ -45,4 +45,12 @@
 
 .color-sunday {
   color: rgb(123, 123, 123);
+}
+
+.today {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 4px 10px;
+  text-align: center;
 }

@@ -79,7 +79,7 @@ function ContentHelperView({
         view === 'month' && <MonthHelperView />
       }
       {
-        view === 'week' && <WeekHelperView />
+        view === 'week' && <WeekHelperView currDate={currDate} />
       }
     </div>
   );

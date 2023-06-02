@@ -5,7 +5,7 @@ import ContentHelperView from './components/Content/ContentHelper';
 import { getPrevNextDate, getTodaysDate } from './helpers/utils';
 
 function App() {
-  const [view, setView] = useState<View>('month');
+  const [view, setView] = useState<View>('week');
   const [currDate, setCurrDate] = useState<CurrDate>(getTodaysDate())
   function updateDate(type: 'today' | 'prev' | 'next') {
     if(type === 'today') {

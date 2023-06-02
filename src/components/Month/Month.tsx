@@ -1,4 +1,4 @@
-import { getDays } from '../../helpers/utils';
+import { getDays, getTodaysDate } from '../../helpers/utils';
 import './style.css';
 
 function MonthView({
@@ -10,6 +10,7 @@ function MonthView({
     year: currDate.year,
     month: currDate.month
   })
+  const today = getTodaysDate()
   return (
     <div className="month-wrapper">
       {
@@ -18,12 +19,15 @@ function MonthView({
             <div className="month-row" key={`row_${rowKey}`}>
               {
                 row.map((column: any, colIndex: number) => {
-                  let colClassName = colIndex === 0 ? 'sunday' : ''
+                  let colClassName = colIndex === 0 ? 'sunday' : '';
+                  let todayClass = currDate.year === today.year && column.month === today.month && column.day === currDate.date ? 'today' : ''
                   if(column.color) {
                     colClassName += ' color-sunday';
                   }
                   return (
-                    <div className={colClassName} key={`column_${rowKey}_${colIndex}`}>{column.dayText || column.day}</div>
+                    <div className={colClassName} key={`column_${rowKey}_${colIndex}`}>
+                      <span className={todayClass}>{column.dayText || column.day}</span>
+                      </div>
                   )
                 })
               }

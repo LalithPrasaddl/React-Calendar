@@ -13,7 +13,6 @@
 
 .week-column {
   flex: 1;
-  border-left: 1px solid rgb(230, 230, 230);
 }
 
 .week-hour {
@@ -26,6 +25,10 @@
 .week-hour-title {
   position: relative;
   min-height: 8vh;
+}
+
+.week-hour-title:first-of-type {
+  border-top: 1px solid rgb(230, 230, 230);
 }
 
 .week-hour-title span {
@@ -63,4 +66,8 @@
 
 .week-helper-row > div.sunday {
   color: rgb(123, 123, 123);
+}
+
+.week-helper-row-date {
+  margin-left: .3rem;
 }

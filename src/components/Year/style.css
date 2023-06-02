@@ -46,3 +46,10 @@
 .prev-next {
   color: rgb(137, 137, 137);
 }
+
+.today-year {
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 8px;
+}
