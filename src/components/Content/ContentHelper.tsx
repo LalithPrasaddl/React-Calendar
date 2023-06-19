@@ -1,3 +1,4 @@
+import { weekDays } from "../../helpers/utils";
 import MonthHelperView from "../Month/MonthHelper";
 import WeekHelperView from "../Week/WeekHelper";
 
@@ -25,6 +26,10 @@ function ContentHelperView({
     title: 'Year',
     key: 'year'
   }]
+  const date = new Date([
+    currDate.month + 1,
+    currDate.date,
+    currDate.year].join('/')).getDay() || 0
   return (
     <div className="content-helper-view">
       <div className="view-toggle-wrapper">
@@ -72,7 +77,7 @@ function ContentHelperView({
       </div>
       {
         view === 'day' && (
-          <div className="content-today-wrapper">Monday</div>
+          <div className="content-today-wrapper">{weekDays[date].fullName}</div>
         )
       }
       {

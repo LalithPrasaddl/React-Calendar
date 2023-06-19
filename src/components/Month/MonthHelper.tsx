@@ -7,7 +7,7 @@ function MonthHelperView() {
         weekDays.map((day, dayIndex) => {
           const className = dayIndex === 0 ? 'sunday' : ''
           return (
-            <div key={`month_day_${day}`} className={className}>{day}</div>
+            <div key={`month_day_${day.fullName}`} className={className}>{day.halfName}</div>
           )
         })
       }

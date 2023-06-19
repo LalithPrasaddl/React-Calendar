@@ -5,6 +5,7 @@
   height: 84vh;
   max-height: 84vh;
   overflow: auto;
+  position: relative;
 }
 
 .week-time {
@@ -25,6 +26,10 @@
 .week-hour-title {
   position: relative;
   min-height: 8vh;
+}
+
+.week-full-day {
+  min-height: 5vh;
 }
 
 .week-hour-title:first-of-type {
@@ -70,4 +75,28 @@
 
 .week-helper-row-date {
   margin-left: .3rem;
+}
+
+.all-day-line {
+  position: absolute;
+  width: calc(98vw);
+  border-bottom:3px solid rgb(230, 230, 230);
+  top: 1vh;
+  left: 2vw;
+  box-sizing: border-box;
+}
+
+.all-day-line span {
+  font-size: 0.75rem;
+  padding-left: 24px;
+  color: rgb(123, 123, 123);
+  font-weight: 500;
+}
+
+.curr-time-red-line {
+  position: absolute;
+  width: calc(96vw);
+  border-bottom: 1px solid rgb(252, 61, 57);
+  left: 4vw;
+  box-sizing: border-box;
 }

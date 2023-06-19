@@ -10,7 +10,7 @@ function Day() {
           hours.map((hour, hourIndex) => {
             return (
               <div className="day-hour-title" key={`hour_title_${hourIndex}_`}>
-                <span>{hour} AM</span>
+                <span>{hour.text}</span>
               </div>
             )
           })

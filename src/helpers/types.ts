@@ -14,3 +14,8 @@ type DayDate = {
   color?: boolean,
   dayText?: string;
 }
+
+type HourItem = {
+  text: string;
+  value: number;
+}

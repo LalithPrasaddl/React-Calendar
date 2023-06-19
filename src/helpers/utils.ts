@@ -1,12 +1,25 @@
-export const weekDays = [
-  'Sun',
-  'Mon',
-  'Tue',
-  'Wed',
-  'Thu',
-  'Fri',
-  'Sat'
-]
+export const weekDays = [{
+  fullName: 'Sunday',
+  halfName: 'Sun'
+}, {
+  fullName: 'Monday',
+  halfName: 'Mon'
+}, {
+  fullName: 'Tuesday',
+  halfName: 'Tue'
+}, {
+  fullName: 'Wednesday',
+  halfName: 'Wed'
+}, {
+  fullName: 'Thursday',
+  halfName: 'Thu'
+}, {
+  fullName: 'Friday',
+  halfName: 'Fri'
+}, {
+  fullName: 'Saturday',
+  halfName: 'Sat'
+}]
 
 export const months = [{
   fullName: 'January',
@@ -130,9 +143,20 @@ export function getDays({
 }
 
 export function getHours() {
-  const columns: any[] = [];
+  const columns: HourItem[] = [];
   for (let i = 0; i < 24; i++) {
-      columns.push(i + 1);
+    const value = i + 1;
+    let text = i < 12 ? value + ' AM' : (value - 12) + ' PM';
+    if(value === 12) {
+      text = 'Midday'
+    }
+    if (value === 24) {
+        text = '12 AM'
+    }
+    columns.push({
+      text,
+      value
+    });
   }
   return columns;
 }
@@ -145,7 +169,10 @@ export function getTodaysDate() {
     date: date.getDate(),
     month,
     year: date.getFullYear(),
-    monthText: months[month].fullName
+    monthText: months[month].fullName,
+    hours: date.getHours(),
+    mins: date.getMinutes(),
+    day: date.getDay()
   }
 }
 

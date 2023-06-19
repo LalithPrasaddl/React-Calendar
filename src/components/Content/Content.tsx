@@ -16,7 +16,7 @@ function ContentView({
     return <MonthView currDate={currDate} />;
   }
   if(view === 'week') {
-    return <WeekView />
+    return <WeekView currDate={currDate} />
   }
   if(view === 'year') {
     return <YearView currDate={currDate} />

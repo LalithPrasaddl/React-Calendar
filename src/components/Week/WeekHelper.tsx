@@ -18,8 +18,8 @@ function WeekHelperView({
             dateClass += ' today';
           }
           return (
-            <div key={`week_day_${day}`}>
-              <span>{day}</span>
+            <div key={`week_day_${day.fullName}`}>
+              <span>{day.halfName}</span>
               <span className={dateClass}>{date.day}</span>
             </div>
           )

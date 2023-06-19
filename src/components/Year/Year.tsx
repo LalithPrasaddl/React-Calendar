@@ -43,7 +43,7 @@ function Year({
                         {
                           weekDays.map((item) => {
                             return (
-                              <div key={item}>{item.charAt(0)}</div>
+                              <div key={item.fullName}>{item.halfName.charAt(0)}</div>
                             )
                           })
                         }
