@@ -97,6 +97,18 @@
   position: absolute;
   width: calc(96vw);
   border-bottom: 1px solid rgb(252, 61, 57);
-  left: 4vw;
+  left: 4.5vw;
   box-sizing: border-box;
+  z-index: 10;
+}
+
+.curr-time-red-line span {
+  position: absolute;
+  color: rgb(252, 61, 57);
+  font-size: 0.65rem;
+  top: -.5rem;
+  background: white;
+  padding-right: 4px;
+  left: -1.25rem;
+  font-weight: 700;
 }
