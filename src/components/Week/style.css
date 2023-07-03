@@ -18,9 +18,13 @@
 
 .week-hour {
   min-height: 8vh;
-  border-top: 1px solid rgb(230, 230, 230);
-  border-right: 1px solid rgb(230, 230, 230);
+  border-top: 1px solid var(--bordergrey);
+  border-right: 1px solid var(--bordergrey);
   box-sizing: border-box;
+}
+
+.week-hour.sunday {
+  background: var(--lightgrey);
 }
 
 .week-hour-title {
@@ -33,7 +37,7 @@
 }
 
 .week-hour-title:first-of-type {
-  border-top: 1px solid rgb(230, 230, 230);
+  border-top: 1px solid var(--bordergrey);
 }
 
 .week-hour-title span {
@@ -42,13 +46,13 @@
   padding-right: 4px;
   font-size: 0.75rem;
   bottom: -10px;
-  color: rgb(123, 123, 123);
+  color: var(--tabbtntext);
   font-weight: 400;
 }
 
 .week-column.sunday, .week-column.sunday .week-hour {
-  background-color: rgb(245, 245, 245);
-  color: rgb(123, 123, 123);
+  background-color: var(--lightgrey);
+  color: var(--tabbtntext);
 }
 
 .week-helper-row {
@@ -70,7 +74,7 @@
 }
 
 .week-helper-row > div.sunday {
-  color: rgb(123, 123, 123);
+  color: var(--tabbtntext);
 }
 
 .week-helper-row-date {
@@ -80,7 +84,7 @@
 .all-day-line {
   position: absolute;
   width: calc(98vw);
-  border-bottom:3px solid rgb(230, 230, 230);
+  border-bottom:3px solid var(--bordergrey);
   top: 1vh;
   left: 2vw;
   box-sizing: border-box;
@@ -89,14 +93,14 @@
 .all-day-line span {
   font-size: 0.75rem;
   padding-left: 24px;
-  color: rgb(123, 123, 123);
+  color: var(--tabbtntext);
   font-weight: 500;
 }
 
 .curr-time-red-line {
   position: absolute;
   width: calc(96vw);
-  border-bottom: 1px solid rgb(252, 61, 57);
+  border-bottom: 1px solid var(--red);
   left: 4.5vw;
   box-sizing: border-box;
   z-index: 10;
@@ -104,10 +108,10 @@
 
 .curr-time-red-line span {
   position: absolute;
-  color: rgb(252, 61, 57);
+  color: var(--red);
   font-size: 0.65rem;
   top: -.5rem;
-  background: white;
+  background: var(--white);
   padding-right: 4px;
   left: -1.25rem;
   font-weight: 700;

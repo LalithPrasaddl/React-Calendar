@@ -4,7 +4,7 @@
   height: 84vh;
   max-height: 84vh;
   overflow: auto;
-  border-top: 1px solid rgb(230, 230, 230);
+  border-top: 1px solid var(--bordergrey);
   box-sizing: border-box;
   margin-left: .75rem;
 }
@@ -28,12 +28,12 @@
   padding-right: 4px;
   font-size: 0.75rem;
   bottom: -0.8vh;
-  color: rgb(123, 123, 123);
+  color: var(--tabbtntext);
   font-weight: 400;
 }
 
 .day-hour-content {
-  border-bottom: 1px solid rgb(230, 230, 230);
+  border-bottom: 1px solid var(--bordergrey);
   min-height: 7vh;
   box-sizing: border-box;
 }

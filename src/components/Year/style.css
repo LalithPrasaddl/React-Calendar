@@ -13,7 +13,7 @@
 }
 
 .year-row-month-name {
-  color: rgb(264, 64, 63);
+  color: var(--red);
   font-weight: 500;
   font-size: 1.25rem;
   padding-left: .85rem;
@@ -25,7 +25,7 @@
   display: flex;
   box-sizing: border-box;
   font-weight: 500;
-  color: rgb(137, 137, 137);
+  color: var(--tabbtntext);
 }
 
 .week-days-row > div, .year-day-row > div {
@@ -35,21 +35,24 @@
 
 .year-day-row {
   display: flex;
+  margin-bottom: .11rem;
 }
 
 .year-day-row > div,  .week-days-row {
   font-size: .85rem;
-  font-weight: 500;
-
+  font-weight: 700;
+}
+.year-day-row .sunday {
+  color: var(--lightergrey);
 }
 
 .prev-next {
-  color: rgb(137, 137, 137);
+  color: var(--lghtshadegrey);
 }
 
 .today-year {
-  background: rgb(252, 61, 57);
-  color: white;
+  background: var(--red);
+  color: var(--white);
   border-radius: 50%;
-  padding: 2px 6px;
+  padding: 2px 8px;
 }

@@ -62,7 +62,7 @@ function WeekView({
             position: 'absolute',
             width: '12px',
             height: '12px',
-            backgroundColor: 'red',
+            backgroundColor: 'rgb(252, 61, 57)',
             borderRadius: '50%',
             top: '-6px',
             left: `${isTodayWeek.timeOffset}vw`
@@ -88,13 +88,21 @@ function WeekView({
       {
         boxes.map((_, boxIndex) => {
           const className = 'week-column';
+          let weekFullday = 'week-hour week-full-day';
+          if(boxIndex === 0) {
+            weekFullday += ' sunday';
+          }
           return (
             <div key={`row_${boxIndex}`} className={className}>
-              <div className="week-hour week-full-day" key={`hour_${-1}_row_${-1}`}></div>
+              <div className={weekFullday} key={`hour_${-1}_row_${-1}`}></div>
                 {
                   hours.map((_, hourIndex) => {
+                    let className = 'week-hour';
+                    if(boxIndex === 0) {
+                      className += ' sunday';
+                    }
                     return (
-                      <div className="week-hour" key={`hour_${hourIndex}_row_${boxIndex}`}></div>
+                      <div className={className} key={`hour_${hourIndex}_row_${boxIndex}`}></div>
                     )
                   })
                 }

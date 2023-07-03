@@ -54,9 +54,12 @@ function Year({
                             return (
                               <div key={`day_row_${dayRowIndex}_row_${rowIndex}`} className="year-day-row">
                                 {
-                                  dayRow.map((dayCol) => {
+                                  dayRow.map((dayCol, dayColIndex) => {
                                     let className = dayCol.color ? ' prev-next' : '';
                                     let textClass = dayCol.year === today.year && dayCol.month === today.month && dayCol.day === currDate.date && !dayCol.color ? 'today-year' : ''
+                                    if(dayColIndex === 0 && !className) {
+                                      textClass += ' sunday';
+                                    }
                                     return (
                                       <div key={`day_col_${dayCol.day}`} className={className}>
                                         <span className={textClass}>{dayCol.day}</span>
